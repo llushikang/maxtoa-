@@ -1,0 +1,1869 @@
+##############################################################################
+# arnold nodes
+##############################################################################
+
+
+## point_light ###############################################################
+
+[node point_light]
+
+[attr radius]
+max.label STRING "Radius"
+max.param STRING "lightRadius"
+desc STRING "灯光的球面半径"
+
+[attr camera]
+max.label STRING "Camera"
+max.param STRING "camera"
+desc STRING "相机的每光照缩放"
+
+[attr transmission]
+max.label STRING "Transmission"
+max.param STRING "transmission"
+desc STRING "传输的每光比例缩放"
+
+[attr max_shapeType]
+max.label STRING "Shape Type"
+max.param STRING "shapeType"
+desc STRING "灯光类型"
+
+[attr max_lightShapeVisible]
+max.label STRING "Light Shape Visible"
+max.param STRING "lightShapeVisible"
+desc STRING "如果打开,则在渲染图像中可以看到灯光形状"
+
+[attr max_alwaysVisibleInViewport]
+max.label STRING "Always Visible In Viewport"
+max.param STRING "alwaysVisibleInViewport"
+desc STRING "灯光形状小玩意和操纵器将始终在视口中可见"
+
+[attr max_on]
+max.label STRING "On"
+max.param STRING "on"
+desc STRING "打开灯"
+
+[attr max_targeted]
+max.label STRING "Targeted"
+max.param STRING "targeted"
+desc STRING "如果选中,则计算亮度方向以查看目标"
+
+[attr max_targDist]
+max.label STRING "Target Distance"
+max.param STRING "targDist"
+desc STRING "光与目标之间的距离"
+
+[attr max_userOptions]
+max.label STRING "Arnold User Options"
+max.param STRING "userOptions"
+desc STRING "这是一个通用属性,由一个字符串组成这个字符串字段可以设置为覆盖Arnold核心节点的任何参数"
+
+[attr max_useColor]
+max.label STRING "Use Color"
+max.param STRING "useColor"
+desc STRING "使用色样设置灯光颜色"
+
+[attr max_usePreset]
+max.label STRING "Use Preset"
+max.param STRING "usePreset"
+desc STRING "使用所选的颜色预设设置灯光颜色"
+
+[attr max_useKelvin]
+max.label STRING "Use Kelvin"
+max.param STRING "useKelvin"
+desc STRING "用开尔文值设置灯光颜色"
+
+[attr max_useTexmap]
+max.label STRING "Use Texture"
+max.param STRING "useTexmap"
+desc STRING "使用所选纹理设置灯光颜色"
+
+[attr max_color]
+max.label STRING "Color"
+max.param STRING "color"
+desc STRING "光的颜色"
+
+[attr max_preset]
+max.label STRING "Preset"
+max.param STRING "preset"
+desc STRING "颜色预设"
+
+[attr max_kelvin]
+max.label STRING "Kelvin"
+max.param STRING "kelvin"
+desc STRING "开尔文价值"
+
+[attr max_kelvinColor]
+max.label STRING "Kelvin Color"
+max.param STRING "kelvinColor"
+desc STRING "与开尔文值或预设值对应的颜色"
+
+[attr max_filter]
+max.label STRING "Light Filter"
+max.param STRING "filter"
+desc STRING "将滤色镜添加到主要光色中"
+
+[attr max_resultingIntensity]
+max.label STRING "Resulting Intensity"
+max.param STRING "resultingIntensity"
+desc STRING "用光强度和曝光计算得到的强度值"
+
+[attr intensity]
+max.label STRING "Intensity"
+max.param STRING "intensity"
+desc STRING "强度通过乘以颜色来控制光源发出的光的亮度"
+
+[attr exposure]
+max.label STRING "Exposure (f-stop)"
+max.param STRING "exposure"
+desc STRING "曝光是一个f-stop值,它将强度乘以f与f-stop的功率相乘将曝光增加1会导致光量增加一倍"
+
+[attr normalize]
+max.label STRING "Normalize"
+max.param STRING "normalize"
+desc STRING "如果启用,您将能够通过改变灯光的大小（即半径）来调整阴影柔和度,而不会影响发光量这对于艺术控制非常方便否则,如果未启用,根据物理学的不同,发光量与光的表面积成正比"
+
+[attr cast_shadows]
+max.label STRING "Cast Shadows"
+max.param STRING "cast_shadows"
+desc STRING "允许计算从灯光投射的阴影"
+
+[attr cast_volumetric_shadows]
+max.label STRING "Cast Atmospheric Shadows"
+max.param STRING "cast_volumetric_shadows"
+desc STRING "确定是否计算体积阴影此选项不在Distant或Skydome Lights中"
+
+[attr shadow_density]
+max.label STRING "Shadow Density"
+max.param STRING "shadow_density"
+desc STRING "设置阴影密度或强度它控制阴影与阴影投射的材质混合的方式：值1.0产生不透明的黑色阴影,值0.0不产生阴影通常这会是1.0"
+
+[attr shadow_color]
+max.label STRING "Shadow Color"
+max.param STRING "shadow_color"
+desc STRING "设置阴影的每个颜色通道的强度通常这将是黑色"
+
+[attr samples]
+max.label STRING "Samples"
+max.param STRING "samples"
+desc STRING "控制柔和阴影中的噪声质量并直接反射高光"
+
+[attr volume_samples]
+max.label STRING "Volumes Samples"
+max.param STRING "volume_samples"
+desc STRING "体积样本参数处理用于整合来自直接光的散射的样本数就像表面的\"samples\"参数一样,它也是一个平方数"
+
+[attr diffuse]
+max.label STRING "Diffuse"
+max.param STRING "diffuse"
+desc STRING "漫反射的每光缩放"
+
+[attr specular]
+max.label STRING "Specular"
+max.param STRING "specular"
+desc STRING "Specular的每光缩放"
+
+[attr sss]
+max.label STRING "Subsurface Scattering"
+max.param STRING "sss"
+desc STRING "用于次表面散射的每光定标"
+
+[attr indirect]
+max.label STRING "Indirect"
+max.param STRING "indirect"
+desc STRING "间接的每光缩放"
+
+[attr volume]
+max.label STRING "Volume"
+max.param STRING "volume"
+desc STRING "Volume的Per-light scaling"
+
+[attr max_bounces]
+max.label STRING "Max Bounces"
+max.param STRING "max_bounces"
+desc STRING "允许来自此灯光的能量在场景中反弹的最大次数"
+
+[attr max_affectViewport]
+max.label STRING "Affect Viewport"
+max.param STRING "affectViewport"
+desc STRING "如果选中,则灯光将用于在视口中点亮场景"
+
+[attr aov]
+max.label STRING "AOV"
+max.param STRING "aov"
+desc STRING "光线所贡献的AOV"
+
+## disk_light ###############################################################
+
+[node disk_light]
+
+[attr camera]
+max.label STRING "Camera"
+max.param STRING "camera"
+desc STRING "相机的每光照缩放"
+
+[attr transmission]
+max.label STRING "Transmission"
+max.param STRING "transmission"
+desc STRING "传输的每光比例缩放"
+
+[attr radius]
+max.label STRING "Radius"
+max.param STRING "lightRadius"
+desc STRING "光的球面半径"
+
+[attr spread]
+max.label STRING "Spread"
+max.param STRING "spread"
+desc STRING "使光线聚焦在法线方向上默认的散布值1为漫射发射,而较低的值则聚焦光线,直到它成为类似激光的光束,值为0"
+
+[attr max_shapeType]
+max.label STRING "Shape Type"
+max.param STRING "shapeType"
+desc STRING "轻型"
+
+[attr max_lightShapeVisible]
+max.label STRING "Light Shape Visible"
+max.param STRING "lightShapeVisible"
+desc STRING "如果打开,则在渲染图像中可以看到灯光形状"
+
+[attr max_alwaysVisibleInViewport]
+max.label STRING "Always Visible In Viewport"
+max.param STRING "alwaysVisibleInViewport"
+desc STRING "灯光形状小玩意和操纵器将始终在视口中可见"
+
+[attr max_on]
+max.label STRING "On"
+max.param STRING "on"
+desc STRING "打开灯"
+
+[attr max_targeted]
+max.label STRING "Targeted"
+max.param STRING "targeted"
+desc STRING "如果选中,则计算亮度方向以查看目标"
+
+[attr max_targDist]
+max.label STRING "Target Distance"
+max.param STRING "targDist"
+desc STRING "光与目标之间的距离"
+
+[attr max_userOptions]
+max.label STRING "Arnold User Options"
+max.param STRING "userOptions"
+desc STRING "这是一个通用属性,由一个字符串组成这个字符串字段可以设置为覆盖Arnold核心节点的任何参数"
+
+[attr max_useColor]
+max.label STRING "Use Color"
+max.param STRING "useColor"
+desc STRING "使用色样设置灯光颜色"
+
+[attr max_usePreset]
+max.label STRING "Use Preset"
+max.param STRING "usePreset"
+desc STRING "使用所选的颜色预设设置灯光颜色"
+
+[attr max_useKelvin]
+max.label STRING "Use Kelvin"
+max.param STRING "useKelvin"
+desc STRING "用开尔文值设置灯光颜色"
+
+[attr max_useTexmap]
+max.label STRING "Use Texture"
+max.param STRING "useTexmap"
+desc STRING "使用所选纹理设置灯光颜色"
+
+[attr max_color]
+max.label STRING "Color"
+max.param STRING "color"
+desc STRING "光的颜色"
+
+[attr max_preset]
+max.label STRING "Preset"
+max.param STRING "preset"
+desc STRING "颜色预设"
+
+[attr max_kelvin]
+max.label STRING "Kelvin"
+max.param STRING "kelvin"
+desc STRING "开尔文价值"
+
+[attr max_kelvinColor]
+max.label STRING "Kelvin Color"
+max.param STRING "kelvinColor"
+desc STRING "与开尔文值或预设值对应的颜色"
+
+[attr max_filter]
+max.label STRING "Light Filter"
+max.param STRING "filter"
+desc STRING "将滤色镜添加到主要光色中"
+
+[attr max_resultingIntensity]
+max.label STRING "Resulting Intensity"
+max.param STRING "resultingIntensity"
+desc STRING "用光强度和曝光计算得到的强度值"
+
+[attr intensity]
+max.label STRING "Intensity"
+max.param STRING "intensity"
+desc STRING "强度通过乘以颜色来控制光源发出的光的亮度"
+
+[attr exposure]
+max.label STRING "Exposure"
+max.param STRING "exposure"
+desc STRING "曝光是一个f-stop值,它将强度乘以f与f-stop的功率相乘将曝光增加1会导致光量增加一倍"
+
+[attr normalize]
+max.label STRING "Normalize"
+max.param STRING "normalize"
+desc STRING "如果启用,您将能够通过改变灯光的大小（即半径）来调整阴影柔和度,而不会影响发光量这对于艺术控制非常方便否则,如果未启用,根据物理学的不同,发光量与光的表面积成正比"
+
+[attr cast_shadows]
+max.label STRING "Cast Shadows"
+max.param STRING "cast_shadows"
+desc STRING "允许计算从灯光投射的阴影"
+
+[attr cast_volumetric_shadows]
+max.label STRING "Cast Atmospheric Shadows"
+max.param STRING "cast_volumetric_shadows"
+desc STRING "确定是否计算体积阴影此选项不在Distant或Skydome Lights中"
+
+[attr shadow_density]
+max.label STRING "Shadow Density"
+max.param STRING "shadow_density"
+desc STRING "设置阴影密度或强度它控制阴影与阴影投射的材质混合的方式：值1.0产生不透明的黑色阴影,值0.0不产生阴影通常这会是1.0"
+
+[attr shadow_color]
+max.label STRING "Shadow Color"
+max.param STRING "shadow_color"
+desc STRING "设置阴影的每个颜色通道的强度通常这将是黑色"
+
+[attr samples]
+max.label STRING "Samples"
+max.param STRING "samples"
+desc STRING "控制柔和阴影中的噪声质量并直接反射高光"
+
+[attr volume_samples]
+max.label STRING "Volumes Samples"
+max.param STRING "volume_samples"
+desc STRING "体积样本参数处理用于整合来自直接光的散射的样本数就像表面的\"samples\"参数一样,它也是一个平方数"
+
+[attr diffuse]
+max.label STRING "Diffuse"
+max.param STRING "diffuse"
+desc STRING "漫反射的每光缩放"
+
+[attr specular]
+max.label STRING "Specular"
+max.param STRING "specular"
+desc STRING "Specular的每光缩放"
+
+[attr sss]
+max.label STRING "Subsurface Scattering"
+max.param STRING "sss"
+desc STRING "用于次表面散射的每光定标"
+
+[attr indirect]
+max.label STRING "Indirect"
+max.param STRING "indirect"
+desc STRING "间接的每光缩放"
+
+[attr volume]
+max.label STRING "Volume"
+max.param STRING "volume"
+desc STRING "Volume的Per-light scaling"
+
+[attr max_bounces]
+max.label STRING "Max Bounces"
+max.param STRING "max_bounces"
+desc STRING "允许来自此灯光的能量在场景中反弹的最大次数"
+
+[attr max_affectViewport]
+max.label STRING "Affect Viewport"
+max.param STRING "affectViewport"
+desc STRING "如果选中,则灯光将用于在视口中点亮场景"
+
+[attr aov]
+max.label STRING "AOV"
+max.param STRING "aov"
+desc STRING "光线所贡献的AOV"
+
+
+## quad_light ###############################################################
+
+[node quad_light]
+
+[attr camera]
+max.label STRING "Camera"
+max.param STRING "camera"
+desc STRING "相机的每光照缩放"
+
+[attr transmission]
+max.label STRING "Transmission"
+max.param STRING "transmission"
+desc STRING "传输的每光比例缩放"
+
+[attr spread]
+max.label STRING "Spread"
+max.param STRING "spread"
+desc STRING "使光线聚焦在法线方向上默认的散布值1为漫射发射,而较低的值则聚焦光线,直到它成为类似激光的光束,值为0"
+
+[attr max_quadRoundness]
+max.label STRING "Roundness"
+max.param STRING "quadRoundness"
+desc STRING "圆度参数,从0的正方形到圆角,到1的圆盘形状"
+
+[attr soft_edge]
+max.label STRING "Soft Edge"
+max.param STRING "soft_edge"
+desc STRING "指定光线强度在边缘平滑下降到零的区域与聚光灯的penumbra_angle类似"
+
+[attr resolution]
+max.label STRING "Resolution"
+max.param STRING "resolution"
+desc STRING "当着色器连接到quad_light时,Arnold将自动构建类似于skydome_light中使用的重要性采样表这样可以根据纹理的亮度进行有效采样,这可以大大降低采样噪声,尤其是在使用HDRI时纹理"
+
+[attr portal]
+max.label STRING "Portal"
+max.param STRING "portal"
+desc STRING "将四边形灯标记为天幕门户"
+
+[attr max_quadX]
+max.label STRING "Quad X"
+max.param STRING "quadX"
+desc STRING "X方向的四边形"
+
+[attr max_quadY]
+max.label STRING "Quad Y"
+max.param STRING "quadY"
+desc STRING "Y方向的四边形"
+
+[attr max_shapeType]
+max.label STRING "Shape Type"
+max.param STRING "shapeType"
+desc STRING "轻型"
+
+[attr max_lightShapeVisible]
+max.label STRING "Light Shape Visible"
+max.param STRING "lightShapeVisible"
+desc STRING "如果打开,则在渲染图像中可以看到灯光形状"
+
+[attr max_alwaysVisibleInViewport]
+max.label STRING "Always Visible In Viewport"
+max.param STRING "alwaysVisibleInViewport"
+desc STRING "灯光形状小玩意和操纵器将始终在视口中可见"
+
+[attr max_on]
+max.label STRING "On"
+max.param STRING "on"
+desc STRING "打开灯"
+
+[attr max_targeted]
+max.label STRING "Targeted"
+max.param STRING "targeted"
+desc STRING "如果选中,则计算亮度方向以查看目标"
+
+[attr max_targDist]
+max.label STRING "Target Distance"
+max.param STRING "targDist"
+desc STRING "光与目标之间的距离"
+
+[attr max_userOptions]
+max.label STRING "Arnold User Options"
+max.param STRING "userOptions"
+desc STRING "这是一个通用属性,由一个字符串组成这个字符串字段可以设置为覆盖Arnold核心节点的任何参数"
+
+[attr max_useColor]
+max.label STRING "Use Color"
+max.param STRING "useColor"
+desc STRING "使用色样设置灯光颜色"
+
+[attr max_usePreset]
+max.label STRING "Use Preset"
+max.param STRING "usePreset"
+desc STRING "使用所选的颜色预设设置灯光颜色"
+
+[attr max_useKelvin]
+max.label STRING "Use Kelvin"
+max.param STRING "useKelvin"
+desc STRING "用开尔文值设置灯光颜色"
+
+[attr max_useTexmap]
+max.label STRING "Use Texture"
+max.param STRING "useTexmap"
+desc STRING "使用所选纹理设置灯光颜色"
+
+[attr max_color]
+max.label STRING "Color"
+max.param STRING "color"
+desc STRING "光的颜色"
+
+[attr max_preset]
+max.label STRING "Preset"
+max.param STRING "preset"
+desc STRING "颜色预设"
+
+[attr max_kelvin]
+max.label STRING "Kelvin"
+max.param STRING "kelvin"
+desc STRING "开尔文价值"
+
+[attr max_kelvinColor]
+max.label STRING "Kelvin Color"
+max.param STRING "kelvinColor"
+desc STRING "与开尔文值或预设值对应的颜色"
+
+[attr max_filter]
+max.label STRING "Light Filter"
+max.param STRING "filter"
+desc STRING "将滤色镜添加到主要光色中"
+
+[attr max_resultingIntensity]
+max.label STRING "Resulting Intensity"
+max.param STRING "resultingIntensity"
+desc STRING "用光强度和曝光计算得到的强度值"
+
+[attr intensity]
+max.label STRING "Intensity"
+max.param STRING "intensity"
+desc STRING "强度通过乘以颜色来控制光源发出的光的亮度"
+
+[attr exposure]
+max.label STRING "Exposure"
+max.param STRING "exposure"
+desc STRING "曝光是一个f-stop值,它将强度乘以f与f-stop的功率相乘将曝光增加1会导致光量增加一倍"
+
+[attr normalize]
+max.label STRING "Normalize"
+max.param STRING "normalize"
+desc STRING "如果启用,您将能够通过改变灯光的大小（即半径）来调整阴影柔和度,而不会影响发光量这对于艺术控制非常方便否则,如果未启用,根据物理学的不同,发光量与光的表面积成正比"
+
+[attr cast_shadows]
+max.label STRING "Cast Shadows"
+max.param STRING "cast_shadows"
+desc STRING "允许计算从灯光投射的阴影"
+
+[attr cast_volumetric_shadows]
+max.label STRING "Cast Atmospheric Shadows"
+max.param STRING "cast_volumetric_shadows"
+desc STRING "确定是否计算体积阴影此选项不在Distant或Skydome Lights中"
+
+[attr shadow_density]
+max.label STRING "Shadow Density"
+max.param STRING "shadow_density"
+desc STRING "设置阴影密度或强度它控制阴影与阴影投射的材质混合的方式：值1.0产生不透明的黑色阴影,值0.0不产生阴影通常这会是1.0"
+
+[attr shadow_color]
+max.label STRING "Shadow Color"
+max.param STRING "shadow_color"
+desc STRING "设置阴影的每个颜色通道的强度通常这将是黑色"
+
+[attr samples]
+max.label STRING "Samples"
+max.param STRING "samples"
+desc STRING "控制柔和阴影中的噪声质量并直接反射高光"
+
+[attr volume_samples]
+max.label STRING "Volumes Samples"
+max.param STRING "volume_samples"
+desc STRING "体积样本参数处理用于整合来自直接光的散射的样本数就像表面的\"samples\"参数一样,它也是一个平方数"
+
+[attr diffuse]
+max.label STRING "Diffuse"
+max.param STRING "diffuse"
+desc STRING "漫反射的每光缩放"
+
+[attr specular]
+max.label STRING "Specular"
+max.param STRING "specular"
+desc STRING "Specular的每光缩放"
+
+[attr sss]
+max.label STRING "Subsurface Scattering"
+max.param STRING "sss"
+desc STRING "用于次表面散射的每光定标"
+
+[attr indirect]
+max.label STRING "Indirect"
+max.param STRING "indirect"
+desc STRING "间接的每光缩放"
+
+[attr volume]
+max.label STRING "Volume"
+max.param STRING "volume"
+desc STRING "Volume的Per-light scaling"
+
+[attr max_bounces]
+max.label STRING "Max Bounces"
+max.param STRING "max_bounces"
+desc STRING "允许来自此灯光的能量在场景中反弹的最大次数"
+
+[attr max_affectViewport]
+max.label STRING "Affect Viewport"
+max.param STRING "affectViewport"
+desc STRING "如果选中,则灯光将用于在视口中点亮场景"
+
+[attr aov]
+max.label STRING "AOV"
+max.param STRING "aov"
+desc STRING "光线所贡献的AOV"
+
+
+## cylinder_light ############################################################
+
+[node cylinder_light]
+
+[attr camera]
+max.label STRING "Camera"
+max.param STRING "camera"
+desc STRING "相机的每光照缩放"
+
+[attr transmission]
+max.label STRING "Transmission"
+max.param STRING "transmission"
+desc STRING "传输的每光比例缩放"
+
+[attr radius]
+max.label STRING "Radius"
+max.param STRING "lightRadius"
+desc STRING "光的圆柱面的半径"
+
+[attr max_height]
+max.label STRING "Height"
+max.param STRING "height"
+desc STRING "气缸的高度"
+
+[attr max_shapeType]
+max.label STRING "Shape Type"
+max.param STRING "shapeType"
+desc STRING "轻型"
+
+[attr max_lightShapeVisible]
+max.label STRING "Light Shape Visible"
+max.param STRING "lightShapeVisible"
+desc STRING "如果打开,则在渲染图像中可以看到灯光形状"
+
+[attr max_alwaysVisibleInViewport]
+max.label STRING "Always Visible In Viewport"
+max.param STRING "alwaysVisibleInViewport"
+desc STRING "灯光形状小玩意和操纵器将始终在视口中可见"
+
+[attr max_on]
+max.label STRING "On"
+max.param STRING "on"
+desc STRING "打开灯"
+
+[attr max_targeted]
+max.label STRING "Targeted"
+max.param STRING "targeted"
+desc STRING "如果选中,则计算亮度方向以查看目标"
+
+[attr max_targDist]
+max.label STRING "Target Distance"
+max.param STRING "targDist"
+desc STRING "光与目标之间的距离"
+
+[attr max_userOptions]
+max.label STRING "Arnold User Options"
+max.param STRING "userOptions"
+desc STRING "这是一个通用属性,由一个字符串组成这个字符串字段可以设置为覆盖Arnold核心节点的任何参数"
+
+[attr max_useColor]
+max.label STRING "Use Color"
+max.param STRING "useColor"
+desc STRING "使用色样设置灯光颜色"
+
+[attr max_usePreset]
+max.label STRING "Use Preset"
+max.param STRING "usePreset"
+desc STRING "使用所选的颜色预设设置灯光颜色"
+
+[attr max_useKelvin]
+max.label STRING "Use Kelvin"
+max.param STRING "useKelvin"
+desc STRING "用开尔文值设置灯光颜色"
+
+[attr max_useTexmap]
+max.label STRING "Use Texture"
+max.param STRING "useTexmap"
+desc STRING "使用所选纹理设置灯光颜色"
+
+[attr max_color]
+max.label STRING "Color"
+max.param STRING "color"
+desc STRING "光的颜色"
+
+[attr max_preset]
+max.label STRING "Preset"
+max.param STRING "preset"
+desc STRING "颜色预设"
+
+[attr max_kelvin]
+max.label STRING "Kelvin"
+max.param STRING "kelvin"
+desc STRING "开尔文价值"
+
+[attr max_kelvinColor]
+max.label STRING "Kelvin Color"
+max.param STRING "kelvinColor"
+desc STRING "与开尔文值或预设值对应的颜色"
+
+[attr max_filter]
+max.label STRING "Light Filter"
+max.param STRING "filter"
+desc STRING "将滤色镜添加到主要光色中"
+
+[attr max_resultingIntensity]
+max.label STRING "Resulting Intensity"
+max.param STRING "resultingIntensity"
+desc STRING "用光强度和曝光计算得到的强度值"
+
+[attr intensity]
+max.label STRING "Intensity"
+max.param STRING "intensity"
+desc STRING "强度通过乘以颜色来控制光源发出的光的亮度"
+
+[attr exposure]
+max.label STRING "Exposure"
+max.param STRING "exposure"
+desc STRING "曝光是一个f-stop值,它将强度乘以f与f-stop的功率相乘将曝光增加1会导致光量增加一倍"
+
+[attr normalize]
+max.label STRING "Normalize"
+max.param STRING "normalize"
+desc STRING "如果启用,您将能够通过改变灯光的大小（即半径）来调整阴影柔和度,而不会影响发光量这对于艺术控制非常方便否则,如果未启用,根据物理学的不同,发光量与光的表面积成正比"
+
+[attr cast_shadows]
+max.label STRING "Cast Shadows"
+max.param STRING "cast_shadows"
+desc STRING "允许计算从灯光投射的阴影"
+
+[attr cast_volumetric_shadows]
+max.label STRING "Cast Atmospheric Shadows"
+max.param STRING "cast_volumetric_shadows"
+desc STRING "确定是否计算体积阴影此选项不在Distant或Skydome Lights中"
+
+[attr shadow_density]
+max.label STRING "Shadow Density"
+max.param STRING "shadow_density"
+desc STRING "设置阴影密度或强度它控制阴影与阴影投射的材质混合的方式：值1.0产生不透明的黑色阴影,值0.0不产生阴影通常这会是1.0"
+
+[attr shadow_color]
+max.label STRING "Shadow Color"
+max.param STRING "shadow_color"
+desc STRING "设置阴影的每个颜色通道的强度通常这将是黑色"
+
+[attr samples]
+max.label STRING "Samples"
+max.param STRING "samples"
+desc STRING "控制柔和阴影中的噪声质量并直接反射高光"
+
+[attr volume_samples]
+max.label STRING "Volumes Samples"
+max.param STRING "volume_samples"
+desc STRING "体积样本参数处理用于整合来自直接光的散射的样本数就像表面的\"samples\"参数一样,它也是一个平方数"
+
+[attr diffuse]
+max.label STRING "Diffuse"
+max.param STRING "diffuse"
+desc STRING "漫反射的每光缩放"
+
+[attr specular]
+max.label STRING "Specular"
+max.param STRING "specular"
+desc STRING "Specular的每光缩放"
+
+[attr sss]
+max.label STRING "Subsurface Scattering"
+max.param STRING "sss"
+desc STRING "用于次表面散射的每光定标"
+
+[attr indirect]
+max.label STRING "Indirect"
+max.param STRING "indirect"
+desc STRING "间接的每光缩放"
+
+[attr volume]
+max.label STRING "Volume"
+max.param STRING "volume"
+desc STRING "Volume的Per-light scaling"
+
+[attr max_bounces]
+max.label STRING "Max Bounces"
+max.param STRING "max_bounces"
+desc STRING "允许来自此灯光的能量在场景中反弹的最大次数"
+
+[attr max_affectViewport]
+max.label STRING "Affect Viewport"
+max.param STRING "affectViewport"
+desc STRING "如果选中,则灯光将用于在视口中点亮场景"
+
+[attr aov]
+max.label STRING "AOV"
+max.param STRING "aov"
+desc STRING "光线所贡献的AOV"
+
+
+## distant_light #############################################################
+
+[node distant_light]
+
+[attr angle]
+max.label STRING "Angle"
+max.param STRING "angle"
+desc STRING "光的角度大小,以度为单位非零值会产生逼真的柔和阴影"
+
+[attr max_shapeType]
+max.label STRING "Shape Type"
+max.param STRING "shapeType"
+desc STRING "轻型"
+
+[attr max_lightShapeVisible]
+max.label STRING "Light Shape Visible"
+max.param STRING "lightShapeVisible"
+desc STRING "如果打开,则在渲染图像中可以看到灯光形状"
+
+[attr max_alwaysVisibleInViewport]
+max.label STRING "Always Visible In Viewport"
+max.param STRING "alwaysVisibleInViewport"
+desc STRING "灯光形状小玩意和操纵器将始终在视口中可见"
+
+[attr max_on]
+max.label STRING "On"
+max.param STRING "on"
+desc STRING "打开灯"
+
+[attr max_targeted]
+max.label STRING "Targeted"
+max.param STRING "targeted"
+desc STRING "如果选中,则计算亮度方向以查看目标"
+
+[attr max_targDist]
+max.label STRING "Target Distance"
+max.param STRING "targDist"
+desc STRING "光与目标之间的距离"
+
+[attr max_userOptions]
+max.label STRING "Arnold User Options"
+max.param STRING "userOptions"
+desc STRING "这是一个通用属性,由一个字符串组成这个字符串字段可以设置为覆盖Arnold核心节点的任何参数"
+
+[attr max_useColor]
+max.label STRING "Use Color"
+max.param STRING "useColor"
+desc STRING "使用色样设置灯光颜色"
+
+[attr max_usePreset]
+max.label STRING "Use Preset"
+max.param STRING "usePreset"
+desc STRING "使用所选的颜色预设设置灯光颜色"
+
+[attr max_useKelvin]
+max.label STRING "Use Kelvin"
+max.param STRING "useKelvin"
+desc STRING "用开尔文值设置灯光颜色"
+
+[attr max_useTexmap]
+max.label STRING "Use Texture"
+max.param STRING "useTexmap"
+desc STRING "使用所选纹理设置灯光颜色"
+
+[attr max_color]
+max.label STRING "Color"
+max.param STRING "color"
+desc STRING "光的颜色"
+
+[attr max_preset]
+max.label STRING "Preset"
+max.param STRING "preset"
+desc STRING "颜色预设"
+
+[attr max_kelvin]
+max.label STRING "Kelvin"
+max.param STRING "kelvin"
+desc STRING "开尔文价值"
+
+[attr max_kelvinColor]
+max.label STRING "Kelvin Color"
+max.param STRING "kelvinColor"
+desc STRING "与开尔文值或预设值对应的颜色"
+
+[attr max_filter]
+max.label STRING "Light Filter"
+max.param STRING "filter"
+desc STRING "将滤色镜添加到主要光色中"
+
+[attr max_resultingIntensity]
+max.label STRING "Resulting Intensity"
+max.param STRING "resultingIntensity"
+desc STRING "用光强度和曝光计算得到的强度值"
+
+[attr intensity]
+max.label STRING "Intensity"
+max.param STRING "intensity"
+desc STRING "强度通过乘以颜色来控制光源发出的光的亮度"
+
+[attr exposure]
+max.label STRING "Exposure"
+max.param STRING "exposure"
+desc STRING "曝光是一个f-stop值,它将强度乘以f与f-stop的功率相乘将曝光增加1会导致光量增加一倍"
+
+[attr normalize]
+max.label STRING "Normalize"
+max.param STRING "normalize"
+desc STRING "如果启用,您将能够通过改变灯光的大小（即半径）来调整阴影柔和度,而不会影响发光量这对于艺术控制非常方便否则,如果未启用,根据物理学的不同,发光量与光的表面积成正比"
+
+[attr cast_shadows]
+max.label STRING "Cast Shadows"
+max.param STRING "cast_shadows"
+desc STRING "允许计算从灯光投射的阴影"
+
+[attr cast_volumetric_shadows]
+max.label STRING "Cast Atmospheric Shadows"
+max.param STRING "cast_volumetric_shadows"
+desc STRING "确定是否计算体积阴影此选项不在Distant或Skydome Lights中"
+
+[attr shadow_density]
+max.label STRING "Shadow Density"
+max.param STRING "shadow_density"
+desc STRING "设置阴影密度或强度它控制阴影与阴影投射的材质混合的方式：值1.0产生不透明的黑色阴影,值0.0不产生阴影通常这会是1.0"
+
+[attr shadow_color]
+max.label STRING "Shadow Color"
+max.param STRING "shadow_color"
+desc STRING "设置阴影的每个颜色通道的强度通常这将是黑色"
+
+[attr samples]
+max.label STRING "Samples"
+max.param STRING "samples"
+desc STRING "控制柔和阴影中的噪声质量并直接反射高光"
+
+[attr volume_samples]
+max.label STRING "Volumes Samples"
+max.param STRING "volume_samples"
+desc STRING "体积样本参数处理用于整合来自直接光的散射的样本数就像表面的\"samples\"参数一样,它也是一个平方数"
+
+[attr diffuse]
+max.label STRING "Diffuse"
+max.param STRING "diffuse"
+desc STRING "漫反射的每光缩放"
+
+[attr specular]
+max.label STRING "Specular"
+max.param STRING "specular"
+desc STRING "Specular的每光缩放"
+
+[attr sss]
+max.label STRING "Subsurface Scattering"
+max.param STRING "sss"
+desc STRING "用于次表面散射的每光定标"
+
+[attr indirect]
+max.label STRING "Indirect"
+max.param STRING "indirect"
+desc STRING "间接的每光缩放"
+
+[attr volume]
+max.label STRING "Volume"
+max.param STRING "volume"
+desc STRING "Volume的Per-light scaling"
+
+[attr max_bounces]
+max.label STRING "Max Bounces"
+max.param STRING "max_bounces"
+desc STRING "允许来自此灯光的能量在场景中反弹的最大次数"
+
+[attr max_affectViewport]
+max.label STRING "Affect Viewport"
+max.param STRING "affectViewport"
+desc STRING "如果选中,则灯光将用于在视口中点亮场景"
+
+[attr aov]
+max.label STRING "AOV"
+max.param STRING "aov"
+desc STRING "光线所贡献的AOV"
+
+
+## spot_light ################################################################
+
+[node spot_light]
+
+[attr radius]
+max.label STRING "Radius"
+max.param STRING "lightRadius"
+desc STRING "光的球面半径"
+
+[attr cone_angle]
+max.label STRING "Cone Angle"
+max.param STRING "cone_angle"
+desc STRING "以度为单位的锥角此锥体外不会发出光线"
+
+[attr lens_radius]	
+max.label STRING "Lens Radius"
+max.param STRING "lens_radius"
+desc STRING "设置为零时,点光锥的顶点与光的指定位置一致如果非零,则锥体会被截断,并且假定光线来自落在光线指定位置后面的虚拟位置这模拟了现实世界的灯具的效果,它将灯泡和抛物面反射器捆绑在一个小而封闭的灯具内"
+
+[attr max_spotRoundness]
+max.label STRING "Roundness"
+max.param STRING "spotRoundness"
+desc STRING "圆度参数,从0的正方形到圆角,到1的圆盘形状"
+
+[attr penumbra_angle]
+max.label STRING "Penumbra Angle"
+max.param STRING "penumbra_angle"
+desc STRING "对于具有圆形横截面的圆锥设置为1.0,或者对于椭圆形横截面设置为另一个值一些影院灯,例如PAR罐,产生椭圆形横截面"
+
+[attr aspect_ratio]
+max.label STRING "Aspect Ratio"
+max.param STRING "aspect_ratio"
+desc STRING "此角度,以锥体外边缘朝向聚光灯轴的度数度量,指定光锥强度在锥形边缘平滑下降到零的区域"
+
+[attr intensity]
+max.label STRING "Intensity"
+max.param STRING "intensity"
+desc STRING "强度通过乘以颜色来控制光源发出的光的亮度"
+
+[attr exposure]
+max.label STRING "Exposure"
+max.param STRING "exposure"
+desc STRING "曝光是一个f-stop值,它将强度乘以f与f-stop的功率相乘将曝光增加1会导致光量增加一倍"
+
+[attr cast_shadows]
+max.label STRING "Cast Shadows"
+max.param STRING "cast_shadows"
+desc STRING "允许计算从灯光投射的阴影"
+
+[attr max_shapeType]
+max.label STRING "Shape Type"
+max.param STRING "shapeType"
+desc STRING "轻型"
+
+[attr max_lightShapeVisible]
+max.label STRING "Light Shape Visible"
+max.param STRING "lightShapeVisible"
+desc STRING "如果打开,则在渲染图像中可以看到灯光形状"
+
+[attr max_alwaysVisibleInViewport]
+max.label STRING "Always Visible In Viewport"
+max.param STRING "alwaysVisibleInViewport"
+desc STRING "灯光形状小玩意和操纵器将始终在视口中可见"
+
+[attr max_on]
+max.label STRING "On"
+max.param STRING "on"
+desc STRING "打开灯"
+
+[attr max_targeted]
+max.label STRING "Targeted"
+max.param STRING "targeted"
+desc STRING "如果选中,则计算亮度方向以查看目标"
+
+[attr max_targDist]
+max.label STRING "Target Distance"
+max.param STRING "targDist"
+desc STRING "光与目标之间的距离"
+
+[attr max_userOptions]
+max.label STRING "Arnold User Options"
+max.param STRING "userOptions"
+desc STRING "这是一个通用属性,由一个字符串组成这个字符串字段可以设置为覆盖Arnold核心节点的任何参数"
+
+[attr max_useColor]
+max.label STRING "Use Color"
+max.param STRING "useColor"
+desc STRING "使用色样设置灯光颜色"
+
+[attr max_usePreset]
+max.label STRING "Use Preset"
+max.param STRING "usePreset"
+desc STRING "使用所选的颜色预设设置灯光颜色"
+
+[attr max_useKelvin]
+max.label STRING "Use Kelvin"
+max.param STRING "useKelvin"
+desc STRING "用开尔文值设置灯光颜色"
+
+[attr max_useTexmap]
+max.label STRING "Use Texture"
+max.param STRING "useTexmap"
+desc STRING "使用所选纹理设置灯光颜色"
+
+[attr max_color]
+max.label STRING "Color"
+max.param STRING "color"
+desc STRING "光的颜色"
+
+[attr max_preset]
+max.label STRING "Preset"
+max.param STRING "preset"
+desc STRING "颜色预设"
+
+[attr max_kelvin]
+max.label STRING "Kelvin"
+max.param STRING "kelvin"
+desc STRING "开尔文价值"
+
+[attr max_kelvinColor]
+max.label STRING "Kelvin Color"
+max.param STRING "kelvinColor"
+desc STRING "与开尔文值或预设值对应的颜色"
+
+[attr max_filter]
+max.label STRING "Light Filter"
+max.param STRING "filter"
+desc STRING "将滤色镜添加到主要光色中"
+
+[attr max_resultingIntensity]
+max.label STRING "Resulting Intensity"
+max.param STRING "resultingIntensity"
+desc STRING "用光强度和曝光计算得到的强度值"
+
+[attr intensity]
+max.label STRING "Intensity"
+max.param STRING "intensity"
+desc STRING "强度通过乘以颜色来控制光源发出的光的亮度"
+
+[attr exposure]
+max.label STRING "Exposure"
+max.param STRING "exposure"
+desc STRING "曝光是一个f-stop值,它将强度乘以f与f-stop的功率相乘将曝光增加1会导致光量增加一倍"
+
+[attr normalize]
+max.label STRING "Normalize"
+max.param STRING "normalize"
+desc STRING "如果启用,您将能够通过改变灯光的大小（即半径）来调整阴影柔和度,而不会影响发光量这对于艺术控制非常方便否则,如果未启用,根据物理学的不同,发光量与光的表面积成正比"
+
+[attr cast_shadows]
+max.label STRING "Cast Shadows"
+max.param STRING "cast_shadows"
+desc STRING "允许计算从灯光投射的阴影"
+
+[attr cast_volumetric_shadows]
+max.label STRING "Cast Atmospheric Shadows"
+max.param STRING "cast_volumetric_shadows"
+desc STRING "确定是否计算体积阴影此选项不在Distant或Skydome Lights中"
+
+[attr shadow_density]
+max.label STRING "Shadow Density"
+max.param STRING "shadow_density"
+desc STRING "设置阴影密度或强度它控制阴影与阴影投射的材质混合的方式：值1.0产生不透明的黑色阴影,值0.0不产生阴影通常这会是1.0"
+
+[attr shadow_color]
+max.label STRING "Shadow Color"
+max.param STRING "shadow_color"
+desc STRING "设置阴影的每个颜色通道的强度通常这将是黑色"
+
+[attr samples]
+max.label STRING "Samples"
+max.param STRING "samples"
+desc STRING "控制柔和阴影中的噪声质量并直接反射高光"
+
+[attr volume_samples]
+max.label STRING "Volumes Samples"
+max.param STRING "volume_samples"
+desc STRING "体积样本参数处理用于整合来自直接光的散射的样本数就像表面的\"samples\"参数一样,它也是一个平方数"
+
+[attr diffuse]
+max.label STRING "Diffuse"
+max.param STRING "diffuse"
+desc STRING "漫反射的每光缩放"
+
+[attr specular]
+max.label STRING "Specular"
+max.param STRING "specular"
+desc STRING "Specular的每光缩放"
+
+[attr sss]
+max.label STRING "Subsurface Scattering"
+max.param STRING "sss"
+desc STRING "用于次表面散射的每光定标"
+
+[attr indirect]
+max.label STRING "Indirect"
+max.param STRING "indirect"
+desc STRING "间接的每光缩放"
+
+[attr volume]
+max.label STRING "Volume"
+max.param STRING "volume"
+desc STRING "Volume的Per-light scaling"
+
+[attr max_bounces]
+max.label STRING "Max Bounces"
+max.param STRING "max_bounces"
+desc STRING "允许来自此灯光的能量在场景中反弹的最大次数"
+
+[attr max_affectViewport]
+max.label STRING "Affect Viewport"
+max.param STRING "affectViewport"
+desc STRING "如果选中,则灯光将用于在视口中点亮场景"
+
+[attr aov]
+max.label STRING "AOV"
+max.param STRING "aov"
+desc STRING "光线所贡献的AOV"
+
+
+## photometric_light ############################################################
+
+[node photometric_light]
+
+[attr radius]
+max.label STRING "Radius"
+max.param STRING "photometricRadius"
+desc STRING "灯光表面的半径"
+
+[attr filename]
+max.label STRING "IES Filename"
+max.param STRING "filename"
+desc STRING "允许您选择定义光分布的IES灯光配置文件"
+
+
+
+[attr max_shapeType]
+max.label STRING "Shape Type"
+max.param STRING "shapeType"
+desc STRING "轻型"
+
+[attr max_lightShapeVisible]
+max.label STRING "Light Shape Visible"
+max.param STRING "lightShapeVisible"
+desc STRING "如果打开,则在渲染图像中可以看到灯光形状"
+
+[attr max_alwaysVisibleInViewport]
+max.label STRING "Always Visible In Viewport"
+max.param STRING "alwaysVisibleInViewport"
+desc STRING "灯光形状小玩意和操纵器将始终在视口中可见"
+
+[attr max_on]
+max.label STRING "On"
+max.param STRING "on"
+desc STRING "打开灯"
+
+[attr max_targeted]
+max.label STRING "Targeted"
+max.param STRING "targeted"
+desc STRING "如果选中,则计算亮度方向以查看目标"
+
+[attr max_targDist]
+max.label STRING "Target Distance"
+max.param STRING "targDist"
+desc STRING "光与目标之间的距离"
+
+[attr max_userOptions]
+max.label STRING "Arnold User Options"
+max.param STRING "userOptions"
+desc STRING "这是一个通用属性,由一个字符串组成这个字符串字段可以设置为覆盖Arnold核心节点的任何参数"
+
+[attr max_useColor]
+max.label STRING "Use Color"
+max.param STRING "useColor"
+desc STRING "使用色样设置灯光颜色"
+
+[attr max_usePreset]
+max.label STRING "Use Preset"
+max.param STRING "usePreset"
+desc STRING "使用所选的颜色预设设置灯光颜色"
+
+[attr max_useKelvin]
+max.label STRING "Use Kelvin"
+max.param STRING "useKelvin"
+desc STRING "用开尔文值设置灯光颜色"
+
+[attr max_useTexmap]
+max.label STRING "Use Texture"
+max.param STRING "useTexmap"
+desc STRING "使用所选纹理设置灯光颜色"
+
+[attr max_color]
+max.label STRING "Color"
+max.param STRING "color"
+desc STRING "光的颜色"
+
+[attr max_preset]
+max.label STRING "Preset"
+max.param STRING "preset"
+desc STRING "颜色预设"
+
+[attr max_kelvin]
+max.label STRING "Kelvin"
+max.param STRING "kelvin"
+desc STRING "开尔文价值"
+
+[attr max_kelvinColor]
+max.label STRING "Kelvin Color"
+max.param STRING "kelvinColor"
+desc STRING "与开尔文值或预设值对应的颜色"
+
+[attr max_filter]
+max.label STRING "Light Filter"
+max.param STRING "filter"
+desc STRING "将滤色镜添加到主要光色中"
+
+[attr max_resultingIntensity]
+max.label STRING "Resulting Intensity"
+max.param STRING "resultingIntensity"
+desc STRING "用光强度和曝光计算得到的强度值"
+
+[attr intensity]
+max.label STRING "Intensity"
+max.param STRING "intensity"
+desc STRING "强度通过乘以颜色来控制光源发出的光的亮度"
+
+[attr exposure]
+max.label STRING "Exposure"
+max.param STRING "exposure"
+desc STRING "曝光是一个f-stop值,它将强度乘以f与f-stop的功率相乘将曝光增加1会导致光量增加一倍"
+
+[attr normalize]
+max.label STRING "Normalize"
+max.param STRING "normalize"
+desc STRING "如果启用,您将能够通过改变灯光的大小（即半径）来调整阴影柔和度,而不会影响发光量这对于艺术控制非常方便否则,如果未启用,根据物理学的不同,发光量与光的表面积成正比"
+
+[attr cast_shadows]
+max.label STRING "Cast Shadows"
+max.param STRING "cast_shadows"
+desc STRING "允许计算从灯光投射的阴影"
+
+[attr cast_volumetric_shadows]
+max.label STRING "Cast Atmospheric Shadows"
+max.param STRING "cast_volumetric_shadows"
+desc STRING "确定是否计算体积阴影此选项不在Distant或Skydome Lights中"
+
+[attr shadow_density]
+max.label STRING "Shadow Density"
+max.param STRING "shadow_density"
+desc STRING "设置阴影密度或强度它控制阴影与阴影投射的材质混合的方式：值1.0产生不透明的黑色阴影,值0.0不产生阴影通常这会是1.0"
+
+[attr shadow_color]
+max.label STRING "Shadow Color"
+max.param STRING "shadow_color"
+desc STRING "设置阴影的每个颜色通道的强度通常这将是黑色"
+
+[attr samples]
+max.label STRING "Samples"
+max.param STRING "samples"
+desc STRING "控制柔和阴影中的噪声质量并直接反射高光"
+
+[attr volume_samples]
+max.label STRING "Volumes Samples"
+max.param STRING "volume_samples"
+desc STRING "体积样本参数处理用于整合来自直接光的散射的样本数就像表面的samples参数一样,它也是一个平方数"
+
+[attr diffuse]
+max.label STRING "Diffuse"
+max.param STRING "diffuse"
+desc STRING "漫反射的每光缩放"
+
+[attr specular]
+max.label STRING "Specular"
+max.param STRING "specular"
+desc STRING "Specular的每光缩放"
+
+[attr sss]
+max.label STRING "Subsurface Scattering"
+max.param STRING "sss"
+desc STRING "用于次表面散射的每光定标"
+
+[attr indirect]
+max.label STRING "Indirect"
+max.param STRING "indirect"
+desc STRING "间接的每光缩放"
+
+[attr volume]
+max.label STRING "Volume"
+max.param STRING "volume"
+desc STRING "Volume的Per-light scaling"
+
+[attr max_bounces]
+max.label STRING "Max Bounces"
+max.param STRING "max_bounces"
+desc STRING "允许来自此灯光的能量在场景中反弹的最大次数"
+
+[attr max_affectViewport]
+max.label STRING "Affect Viewport"
+max.param STRING "affectViewport"
+desc STRING "如果选中,则灯光将用于在视口中点亮场景"
+
+[attr aov]
+max.label STRING "AOV"
+max.param STRING "aov"
+desc STRING "光线所贡献的AOV"
+
+
+## skydome_light #################################################################
+
+[node skydome_light]
+
+[attr camera]
+max.label STRING "Camera"
+max.param STRING "camera"
+desc STRING "相机的每光照缩放"
+
+[attr transmission]
+max.label STRING "Transmission"
+max.param STRING "transmission"
+desc STRING "传输的每光比例缩放"
+
+[attr resolution]
+max.label STRING "Resolution"
+max.param STRING "resolution"
+desc STRING "分辨率控制天幕的光泽反射细节为了获得最准确的结果,必须设置Skydome光分辨率以匹配HDRI图像分辨率,但在许多情况下,它可以设置得更低,而不会在反射中明显丢失细节默认情况下,参数设置为1000.分辨率参数越高,skydome_light预先计算灯光的重要性表所需的时间越长,因此将其设置得太高会影响IPR中的交互性"
+
+[attr format]
+max.label STRING "Format"
+max.param STRING "format"
+desc STRING "连接的地图类型可以设置为镜像球,角度或纬度"
+
+[attr portal_mode]
+max.label STRING "Portal Mode"
+max.param STRING "portal_mode"
+desc STRING "Skydome Portal Mode"
+
+[attr max_shapeType]
+max.label STRING "Shape Type"
+max.param STRING "shapeType"
+desc STRING "轻型"
+
+[attr max_lightShapeVisible]
+max.label STRING "Light Shape Visible"
+max.param STRING "lightShapeVisible"
+desc STRING "如果打开,则在渲染图像中可以看到灯光形状"
+
+[attr max_alwaysVisibleInViewport]
+max.label STRING "Always Visible In Viewport"
+max.param STRING "alwaysVisibleInViewport"
+desc STRING "灯光形状小玩意和操纵器将始终在视口中可见"
+
+[attr max_on]
+max.label STRING "On"
+max.param STRING "on"
+desc STRING "打开灯"
+
+[attr max_targeted]
+max.label STRING "Targeted"
+max.param STRING "targeted"
+desc STRING "如果选中,则计算亮度方向以查看目标"
+
+[attr max_targDist]
+max.label STRING "Target Distance"
+max.param STRING "targDist"
+desc STRING "光与目标之间的距离"
+
+[attr max_userOptions]
+max.label STRING "Arnold User Options"
+max.param STRING "userOptions"
+desc STRING "这是一个通用属性,由一个字符串组成这个字符串字段可以设置为覆盖Arnold核心节点的任何参数"
+
+[attr max_useColor]
+max.label STRING "Use Color"
+max.param STRING "useColor"
+desc STRING "使用色样设置灯光颜色"
+
+[attr max_usePreset]
+max.label STRING "Use Preset"
+max.param STRING "usePreset"
+desc STRING "使用所选的颜色预设设置灯光颜色"
+
+[attr max_useKelvin]
+max.label STRING "Use Kelvin"
+max.param STRING "useKelvin"
+desc STRING "用开尔文值设置灯光颜色"
+
+[attr max_useTexmap]
+max.label STRING "Use Texture"
+max.param STRING "useTexmap"
+desc STRING "使用所选纹理设置灯光颜色"
+
+[attr max_color]
+max.label STRING "Color"
+max.param STRING "color"
+desc STRING "光的颜色"
+
+[attr max_preset]
+max.label STRING "Preset"
+max.param STRING "preset"
+desc STRING "颜色预设"
+
+[attr max_kelvin]
+max.label STRING "Kelvin"
+max.param STRING "kelvin"
+desc STRING "开尔文价值"
+
+[attr max_kelvinColor]
+max.label STRING "Kelvin Color"
+max.param STRING "kelvinColor"
+desc STRING "与开尔文值或预设值对应的颜色"
+
+[attr max_filter]
+max.label STRING "Light Filter"
+max.param STRING "filter"
+desc STRING "将滤色镜添加到主要光色中"
+
+[attr max_resultingIntensity]
+max.label STRING "Resulting Intensity"
+max.param STRING "resultingIntensity"
+desc STRING "用光强度和曝光计算得到的强度值"
+
+[attr intensity]
+max.label STRING "Intensity"
+max.param STRING "intensity"
+desc STRING "强度通过乘以颜色来控制光源发出的光的亮度"
+
+[attr exposure]
+max.label STRING "Exposure"
+max.param STRING "exposure"
+desc STRING "曝光是一个f-stop值,它将强度乘以f与f-stop的功率相乘将曝光增加1会导致光量增加一倍"
+
+[attr normalize]
+max.label STRING "Normalize"
+max.param STRING "normalize"
+desc STRING "如果启用,您将能够通过改变灯光的大小（即半径）来调整阴影柔和度,而不会影响发光量这对于艺术控制非常方便否则,如果未启用,根据物理学的不同,发光量与光的表面积成正比"
+
+[attr cast_shadows]
+max.label STRING "Cast Shadows"
+max.param STRING "cast_shadows"
+desc STRING "允许计算从灯光投射的阴影"
+
+[attr cast_volumetric_shadows]
+max.label STRING "Cast Atmospheric Shadows"
+max.param STRING "cast_volumetric_shadows"
+desc STRING "确定是否计算体积阴影此选项不在Distant或Skydome Lights中"
+
+[attr shadow_density]
+max.label STRING "Shadow Density"
+max.param STRING "shadow_density"
+desc STRING "设置阴影密度或强度它控制阴影与阴影投射的材质混合的方式：值1.0产生不透明的黑色阴影,值0.0不产生阴影通常这会是1.0"
+
+[attr shadow_color]
+max.label STRING "Shadow Color"
+max.param STRING "shadow_color"
+desc STRING "设置阴影的每个颜色通道的强度通常这将是黑色"
+
+[attr samples]
+max.label STRING "Samples"
+max.param STRING "samples"
+desc STRING "控制柔和阴影中的噪声质量并直接反射高光"
+
+[attr volume_samples]
+max.label STRING "Volumes Samples"
+max.param STRING "volume_samples"
+desc STRING "体积样本参数处理用于整合来自直接光的散射的样本数就像表面的\"samples\"参数一样,它也是一个平方数"
+
+[attr diffuse]
+max.label STRING "Diffuse"
+max.param STRING "diffuse"
+desc STRING "漫反射的每光缩放"
+
+[attr specular]
+max.label STRING "Specular"
+max.param STRING "specular"
+desc STRING "Specular的每光缩放"
+
+[attr sss]
+max.label STRING "Subsurface Scattering"
+max.param STRING "sss"
+desc STRING "用于次表面散射的每光定标"
+
+[attr indirect]
+max.label STRING "Indirect"
+max.param STRING "indirect"
+desc STRING "间接的每光缩放"
+
+[attr volume]
+max.label STRING "Volume"
+max.param STRING "volume"
+desc STRING "Volume的Per-light scaling"
+
+[attr max_bounces]
+max.label STRING "Max Bounces"
+max.param STRING "max_bounces"
+desc STRING "允许来自此灯光的能量在场景中反弹的最大次数"
+
+[attr max_affectViewport]
+max.label STRING "Affect Viewport"
+max.param STRING "affectViewport"
+desc STRING "如果选中,则灯光将用于在视口中点亮场景"
+
+[attr aov]
+max.label STRING "AOV"
+max.param STRING "aov"
+desc STRING "光线所贡献的AOV"
+
+[attr aov_indirect]
+max.label STRING "Skydome Indirect Lighting"
+max.param STRING "aov_indirect"
+desc STRING "Skydome输出默认为直接光AOV启用此标志输出到间接光AOV"
+
+
+## mesh_light ####################################################################
+
+[node mesh_light]
+
+[attr max_lightMesh]
+max.label STRING "Mesh"
+max.param STRING "lightMesh"
+desc STRING "将多边形网格连接到此参数以创建网格光"
+
+[attr max_shapeType]
+max.label STRING "Shape Type"
+max.param STRING "shapeType"
+desc STRING "轻型"
+
+[attr max_lightShapeVisible]
+max.label STRING "Light Shape Visible"
+max.param STRING "lightShapeVisible"
+desc STRING "如果打开,则在渲染图像中可以看到灯光形状"
+
+[attr max_alwaysVisibleInViewport]
+max.label STRING "Always Visible In Viewport"
+max.param STRING "alwaysVisibleInViewport"
+desc STRING "灯光形状小玩意和操纵器将始终在视口中可见"
+
+[attr max_on]
+max.label STRING "On"
+max.param STRING "on"
+desc STRING "打开灯"
+
+[attr max_targeted]
+max.label STRING "Targeted"
+max.param STRING "targeted"
+desc STRING "如果选中,则计算亮度方向以查看目标"
+
+[attr max_targDist]
+max.label STRING "Target Distance"
+max.param STRING "targDist"
+desc STRING "光与目标之间的距离"
+
+[attr max_userOptions]
+max.label STRING "Arnold User Options"
+max.param STRING "userOptions"
+desc STRING "这是一个通用属性,由一个字符串组成这个字符串字段可以设置为覆盖Arnold核心节点的任何参数"
+
+[attr max_useColor]
+max.label STRING "Use Color"
+max.param STRING "useColor"
+desc STRING "使用色样设置灯光颜色"
+
+[attr max_usePreset]
+max.label STRING "Use Preset"
+max.param STRING "usePreset"
+desc STRING "使用所选的颜色预设设置灯光颜色"
+
+[attr max_useKelvin]
+max.label STRING "Use Kelvin"
+max.param STRING "useKelvin"
+desc STRING "用开尔文值设置灯光颜色"
+
+[attr max_useTexmap]
+max.label STRING "Use Texture"
+max.param STRING "useTexmap"
+desc STRING "使用所选纹理设置灯光颜色"
+
+[attr max_color]
+max.label STRING "Color"
+max.param STRING "color"
+desc STRING "光的颜色"
+
+[attr max_preset]
+max.label STRING "Preset"
+max.param STRING "preset"
+desc STRING "颜色预设"
+
+[attr max_kelvin]
+max.label STRING "Kelvin"
+max.param STRING "kelvin"
+desc STRING "开尔文价值"
+
+[attr max_kelvinColor]
+max.label STRING "Kelvin Color"
+max.param STRING "kelvinColor"
+desc STRING "与开尔文值或预设值对应的颜色"
+
+[attr max_filter]
+max.label STRING "Light Filter"
+max.param STRING "filter"
+desc STRING "将滤色镜添加到主要光色中"
+
+[attr max_resultingIntensity]
+max.label STRING "Resulting Intensity"
+max.param STRING "resultingIntensity"
+desc STRING "用光强度和曝光计算得到的强度值"
+
+[attr intensity]
+max.label STRING "Intensity"
+max.param STRING "intensity"
+desc STRING "强度通过乘以颜色来控制光源发出的光的亮度"
+
+[attr exposure]
+max.label STRING "Exposure"
+max.param STRING "exposure"
+desc STRING "曝光是一个f-stop值,它将强度乘以f与f-stop的功率相乘将曝光增加1会导致光量增加一倍"
+
+[attr normalize]
+max.label STRING "Normalize"
+max.param STRING "normalize"
+desc STRING "如果启用,您将能够通过改变灯光的大小（即半径）来调整阴影柔和度,而不会影响发光量这对于艺术控制非常方便否则,如果未启用,根据物理学的不同,发光量与光的表面积成正比"
+
+[attr cast_shadows]
+max.label STRING "Cast Shadows"
+max.param STRING "cast_shadows"
+desc STRING "允许计算从灯光投射的阴影"
+
+[attr cast_volumetric_shadows]
+max.label STRING "Cast Atmospheric Shadows"
+max.param STRING "cast_volumetric_shadows"
+desc STRING "确定是否计算体积阴影此选项不在Distant或Skydome Lights中"
+
+[attr shadow_density]
+max.label STRING "Shadow Density"
+max.param STRING "shadow_density"
+desc STRING "设置阴影密度或强度它控制阴影与阴影投射的材质混合的方式：值1.0产生不透明的黑色阴影,值0.0不产生阴影通常这会是1.0"
+
+[attr shadow_color]
+max.label STRING "Shadow Color"
+max.param STRING "shadow_color"
+desc STRING "设置阴影的每个颜色通道的强度通常这将是黑色"
+
+[attr samples]
+max.label STRING "Samples"
+max.param STRING "samples"
+desc STRING "控制柔和阴影中的噪声质量并直接反射高光"
+
+[attr volume_samples]
+max.label STRING "Volumes Samples"
+max.param STRING "volume_samples"
+desc STRING "The volume samples parameter handles the number of samples used to integrate the in-scattering from direct light. Like the \"samples\" parameter for surfaces, it is also a squared number."
+
+[attr diffuse]
+max.label STRING "Diffuse"
+max.param STRING "diffuse"
+desc STRING "Per-light scaling for Diffuse."
+
+[attr specular]
+max.label STRING "Specular"
+max.param STRING "specular"
+desc STRING "Per-light scaling for Specular."
+
+[attr sss]
+max.label STRING "Subsurface Scattering"
+max.param STRING "sss"
+desc STRING "Per-light scaling for Subsurface Scattering."
+
+[attr indirect]
+max.label STRING "Indirect"
+max.param STRING "indirect"
+desc STRING "Per-light scaling for Indirect."
+
+[attr volume]
+max.label STRING "Volume"
+max.param STRING "volume"
+desc STRING "Per-light scaling for Volume."
+
+[attr max_bounces]
+max.label STRING "Max Bounces"
+max.param STRING "max_bounces"
+desc STRING "The maximum number of times the energy from this light will be allowed to bounce in the scene."
+
+[attr max_affectViewport]
+max.label STRING "Affect Viewport"
+max.param STRING "affectViewport"
+desc STRING "If on, The light will be use for lighting the scene in the viewport."
+
+[attr aov]
+max.label STRING "AOV"
+max.param STRING "aov"
+desc STRING "AOVs to which the light contributes."
+
+## light_blocker ####################################################################
+
+[node light_blocker]
+
+[attr geometry_type]
+max.label STRING "Geometry Type"
+max.param STRING "geometry_type"
+desc STRING "Determines the shape of the blocked light. A light blocker can be a box, cylinder, sphere, or plane."
+
+[attr density]
+max.label STRING "Density"
+max.param STRING "density"
+desc STRING "This value is the strength of the light blocker effect. The light blocker will not be apparent unless the density value is above 0. "
+
+[attr roundness]
+max.label STRING "Roundness"
+max.param STRING "roundness"
+desc STRING "Increases the circular shape of plane light blockers."
+
+[attr width_edge]
+max.label STRING "Width Edge"
+max.param STRING "width_edge"
+desc STRING "Attenuates the edge of the width of the light blocker. "
+
+[attr height_edge]
+max.label STRING "Height Edge"
+max.param STRING "height_edge"
+desc STRING "Attenuates the edge of the height of the light blocker. "
+
+[attr ramp]
+max.label STRING "Ramp"
+max.param STRING "ramp"
+desc STRING "This is the magnitude of the ramp multiplier, applying along the Ramp Axis direction.  Negative values flip the Ramp Axis direction."
+
+[attr axis]
+max.label STRING "Axis"
+max.param STRING "axis"
+desc STRING "Attenuates the ramp based on the direction set."
+
+[attr shader]
+max.label STRING "Shader"
+max.param STRING "shader"
+desc STRING "Plug the output of the shader you wish to use as a masking effect here."
+
+[attr max_useShader]
+max.label STRING "Use Shader"
+max.param STRING "useShader"
+desc STRING "Turns the shader you wish to use as a masking effect on."
+
+[attr max_positionX]
+max.label STRING "X position"
+max.param STRING "positionX"
+desc STRING "The light blocker geometry x position."
+
+[attr max_positionY]
+max.label STRING "Y position"
+max.param STRING "positionY"
+desc STRING "The light blocker geometry y position."
+
+[attr max_positionZ]
+max.label STRING "Z position"
+max.param STRING "positionZ"
+desc STRING "The light blocker geometry z position."
+
+[attr max_rotationX]
+max.label STRING "X rotation"
+max.param STRING "rotationX"
+desc STRING "The light blocker geometry rotation on the x axis."
+
+[attr max_rotationY]
+max.label STRING "Y rotation"
+max.param STRING "rotationY"
+desc STRING "The light blocker geometry rotation on the y axis."
+
+[attr max_rotationZ]
+max.label STRING "Z rotation"
+max.param STRING "rotationZ"
+desc STRING "The light blocker geometry rotation on the z axis."
+
+[attr max_scaleX]
+max.label STRING "X scale"
+max.param STRING "scaleX"
+desc STRING "The light blocker geometry scale factor on the x axis."
+
+[attr max_scaleY]
+max.label STRING "Y scale"
+max.param STRING "scaleY"
+desc STRING "The light blocker geometry scale factor on the y axis."
+
+[attr max_scaleZ]
+max.label STRING "Z scale"
+max.param STRING "scaleZ"
+desc STRING "The light blocker geometry scale factor on the z axis."
+
